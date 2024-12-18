@@ -34,7 +34,7 @@ class LXFVideoCacheHostApiImplementation(
 ) : LXFVideoCacheHostApi {
     private val cacheServer by lazy {
         HttpProxyCacheServer.Builder(flutterPluginBinding.applicationContext)
-            .maxCacheSize(100 * 1024 * 1024)
+            .maxCacheSize(200 * 1024 * 1024)
             .build()
 
     }
