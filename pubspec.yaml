@@ -1,6 +1,6 @@
 name: video_cache
 description: "A powerful media cache plugin."
-version: 0.0.1
+version: 0.0.4
 homepage: https://github.com/LinXunFeng/flutter_video_cache
 
 environment:
