@@ -32,9 +32,15 @@ class VideoCachePlugin : FlutterPlugin, MethodCallHandler {
 class LXFVideoCacheHostApiImplementation(
         private val flutterPluginBinding: FlutterPlugin.FlutterPluginBinding
 ) : LXFVideoCacheHostApi {
-    private val cacheServer by lazy { HttpProxyCacheServer.Builder(flutterPluginBinding.applicationContext).build() }
+    private val cacheServer by lazy {
+        HttpProxyCacheServer.Builder(flutterPluginBinding.applicationContext)
+            .maxCacheSize(100 * 1024 * 1024)
+            .build()
+
+    }
 
     override fun convertToCacheProxyUrl(url: String): String {
+//        cacheServer.
         return cacheServer.getProxyUrl(url)
     }
 

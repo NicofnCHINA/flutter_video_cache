@@ -20,6 +20,8 @@ class LXFVideoCacheHostApiImplementation: LXFVideoCacheHostApi {
     // 还未试过开启代理服务
     if (self.canProxy == nil) {
       self.canProxy = ((try? KTVHTTPCache.proxyStart()) != nil)
+      KTVHTTPCache.cacheSetMaxCacheLength(200 * 1024 * 1024)
+      print("proxyUrlObj 设置缓存上限为200MB")
     }
     // 无法代理
     if !self.canProxy! { return url }
