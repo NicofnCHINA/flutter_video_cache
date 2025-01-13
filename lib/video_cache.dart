@@ -13,4 +13,11 @@ class VideoCache {
   Future<String> convertToCacheProxyUrl(String url) async {
     return _hostApi.convertToCacheProxyUrl(url);
   }
+
+    Future<String?> getCachedVideoPath(String url) async {
+        return _hostApi.getCachedVideoPath(url);
+    }
+}
+
+  }
 }

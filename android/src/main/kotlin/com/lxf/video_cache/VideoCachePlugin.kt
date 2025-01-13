@@ -36,12 +36,16 @@ class LXFVideoCacheHostApiImplementation(
         HttpProxyCacheServer.Builder(flutterPluginBinding.applicationContext)
             .maxCacheSize(200 * 1024 * 1024)
             .build()
-
     }
 
     override fun convertToCacheProxyUrl(url: String): String {
-//        cacheServer.
         return cacheServer.getProxyUrl(url)
+    }
+
+    override fun getCachedVideoPath(url: String): String? {
+        return cacheServer.getProxyUrl(url)?.let { proxyUrl ->
+            cacheServer.cacheFile(proxyUrl)?.absolutePath
+        }
     }
 
     fun shutdown() {
